@@ -1,0 +1,20 @@
+<h1>Listing products</h1>
+<br />
+
+<%= link_to 'New Product', new_product_path %>
+
+<%  "Products" %>
+
+<% for product in @products %>
+  <div class="product">
+    <h2><%= product.name %></h2>
+    <%= product.description %>
+    <div class="details">
+      Price: <%= number_to_currency(product.price) %> |
+      <%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %> | <%= link_to 'Edit', edit_product_path(product) %>
+    </div>
+  </div>
+<% end %>
+
+
+
